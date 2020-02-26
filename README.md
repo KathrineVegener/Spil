@@ -1,5 +1,5 @@
 # Spil
-
+print("hey")
 def initialize_game(pygame, clock, screen):
     BreddeGange2 = 110
     bredde = 55
