@@ -8,7 +8,7 @@ def initialize_game(pygame, clock, screen):
     pygame.draw.line(screen, (92, 0, 0), [57, 175], [1719, 175], bredde)
     pygame.draw.line(screen, (92, 0, 0), [570, 105], [1, 45], bredde)
     pygame.draw.line(screen, (92, 0, 0), [157, 300], [1874, 300], bredde)
-    pygame.draw.rect(screen, (92, 0, 0), [184, 273, 1, 375], bredde)
+    pygame.draw.rect(screen, (92, 0, 0), [184, 273, 1, 375], bredde)ghhg
     pygame.draw.rect(screen, (92, 0, 0), [184, 700, 1, 375], bredde)
     pygame.draw.rect(screen, (92, 0, 0), [320, 373, 1, 600], bredde)
     pygame.draw.rect(screen, (92, 0, 0), [484, 273, 1, 375], bredde)
