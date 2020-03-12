@@ -1,0 +1,83 @@
+import pygame as pg
+
+def regler():
+    pg.init()
+    screen = pg.display.set_mode((719*2, 430*2))
+    done = False
+    is_blue = True
+    is_white = True
+    x = 30
+    y = 30
+
+    #Kører baggrund
+    Startskærm = pg.image.load('C:/Users/Bruger/PycharmProjects/PyGame/venv/Baggrund.png')
+    screen.blit (Startskærm, (0,-100))
+
+    #Skrifttyper og størrelser
+    font = pg.font.SysFont("comicsansms", 72)
+    fontMellem = pg.font.SysFont("comicsansms", 48)
+    fontLille = pg.font.SysFont("comicsansms", 36)
+
+  #Billeder
+    pile = pg.image.load('C:/Users/Bruger/PycharmProjects/PyGame/venv/Piletaster.png')
+
+    #Nemobillede
+    nemo = pg.image.load('C:/Users/Bruger/PycharmProjects/PyGame/venv/Nemo.png')
+    nemo = pg.transform.scale(nemo, (230,167))
+
+    #Hajbillede
+    haj = pg.image.load('C:/Users/Bruger/PycharmProjects/PyGame/venv/HAJ.png')
+
+   #Nemo og Dorybillede
+    NemoDory = pg.image.load('C:/Users/Bruger/PycharmProjects/PyGame/venv/nemo-and-dory-png.png')
+    NemoDory = pg.transform.scale(NemoDory, (155, 182)) #originalstørrelse 420,529
+
+    #Skildpaddebillede
+    skildpadde = pg.image.load('C:/Users/Bruger/PycharmProjects/PyGame/venv/Skildpadde.png')
+    skildpadde = pg.transform.scale(skildpadde, (240, 209)) #originalstørrelse 960,837
+
+#Tekst
+    title = font.render("Blob to the top", True, (0, 128, 0))
+    kontrol = font.render("Player controls",True, (0,128,0))
+    styring = fontLille.render("Styr på piletasterne", True, (0,128,0))
+    udfordringer = fontMellem.render("Undgå hajen og kanterne!", True, (0,128,0))
+    vind = fontMellem.render("Vind ved at spise maden!", True, (0,128,0))
+
+    clock = pg.time.Clock()
+
+    while not done:
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
+                done = True
+            if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
+                is_blue = not is_blue
+            if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
+                is_white = not is_white
+
+        #Tekst
+        screen.blit(title,
+                    (719 - title.get_width() // 2, 100 - title.get_height() // 2))
+        screen.blit(kontrol,
+                    (300 - kontrol.get_width() // 2, 300 - kontrol.get_height() // 2))
+        screen.blit(styring,
+                    (250 - styring.get_width() // 2, 400 - styring.get_height() // 2))
+        screen.blit(udfordringer,
+                    (1100 - udfordringer.get_width() // 2, 300 - udfordringer.get_height() // 2))
+        screen.blit(vind,
+                    (1100 - vind.get_width() // 2, 400 - vind.get_height() // 2))
+
+        #Billeder
+        screen.blit(pile,(70,450))
+
+        screen.blit(nemo, (1000, 50))
+
+        screen.blit(NemoDory,(50,50))
+
+        screen.blit(skildpadde, (1100, 500))
+
+        screen.blit(haj,(500,300))
+
+
+        pg.display.flip()
+        clock.tick(60)
+regler()
